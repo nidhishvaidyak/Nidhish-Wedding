@@ -23,10 +23,12 @@
         min-height: 100vh;
         font-family: "Cormorant Garamond", serif;
         overflow-x: hidden;
+        padding: 20px;
       }
 
       .card {
-        width: 480px;
+        width: 100%;
+        max-width: 520px;
         background: linear-gradient(
           160deg,
           #0d1b3e 0%,
@@ -101,8 +103,8 @@
 
       .corner {
         position: absolute;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         z-index: 2;
       }
       .corner svg {
@@ -132,7 +134,7 @@
       .inner {
         position: relative;
         z-index: 1;
-        padding: 60px 50px 50px;
+        padding: 50px 30px 40px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -140,9 +142,9 @@
 
       .deity {
         font-family: "Cinzel", serif;
-        font-size: 10px;
+        font-size: 11px;
         color: rgba(212, 175, 55, 0.7);
-        letter-spacing: 4px;
+        letter-spacing: 3px;
         text-transform: uppercase;
         margin-bottom: 18px;
         text-align: center;
@@ -162,7 +164,7 @@
 
       .parents {
         font-family: "Cinzel", serif;
-        font-size: 13px;
+        font-size: 14px;
         color: #d4af37;
         text-align: center;
         line-height: 1.8;
@@ -172,11 +174,11 @@
 
       .invitation-text {
         font-style: italic;
-        font-size: 15px;
+        font-size: 16px;
         color: rgba(255, 255, 255, 0.75);
         text-align: center;
-        line-height: 1.9;
-        margin: 20px 0 24px;
+        line-height: 1.7;
+        margin: 15px 0 20px;
         animation: fadeSlideIn 1s ease 0.7s both;
       }
 
@@ -208,17 +210,21 @@
 
       .couple-section {
         text-align: center;
-        margin: 24px 0;
+        margin: 20px 0;
         animation: fadeSlideIn 1s ease 0.9s both;
+        width: 100%;
       }
 
-      .groom-name {
+      .groom-name,
+      .bride-name {
         font-family: "Dancing Script", cursive;
-        font-size: 52px;
+        font-size: 44px;
+        font-weight: 700;
         color: #d4af37;
         line-height: 1.1;
-        filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
         letter-spacing: 1px;
+        filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.25));
+        white-space: nowrap;
       }
 
       .with-text {
@@ -229,18 +235,9 @@
         letter-spacing: 3px;
       }
 
-      .bride-name {
-        font-family: "Dancing Script", cursive;
-        font-size: 52px;
-        color: #e8c97a;
-        line-height: 1.1;
-        filter: drop-shadow(0 0 12px rgba(232, 201, 122, 0.4));
-        letter-spacing: 1px;
-      }
-
       .bride-parents {
         font-style: italic;
-        font-size: 13px;
+        font-size: 14px;
         color: rgba(255, 255, 255, 0.5);
         margin-top: 8px;
         letter-spacing: 0.5px;
@@ -250,28 +247,29 @@
         width: 100%;
         background: rgba(212, 175, 55, 0.06);
         border: 1px solid rgba(212, 175, 55, 0.2);
-        padding: 22px 28px;
+        padding: 20px;
         margin: 8px 0;
         position: relative;
         animation: fadeSlideIn 1s ease 1s both;
       }
+      .event-box,
+      .reception-box {
+        transition: all 0.35s ease;
+        cursor: default;
+      }
 
-      .event-box::before {
-        content: "";
-        position: absolute;
-        top: 4px;
-        left: 4px;
-        right: 4px;
-        bottom: 4px;
-        border: 1px solid rgba(212, 175, 55, 0.08);
-        pointer-events: none;
+      .event-box:hover,
+      .reception-box:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
+        border-color: rgba(212, 175, 55, 0.6);
       }
 
       .event-label {
         font-family: "Cinzel", serif;
-        font-size: 9px;
+        font-size: 10px;
         color: #d4af37;
-        letter-spacing: 4px;
+        letter-spacing: 3px;
         text-transform: uppercase;
         margin-bottom: 12px;
         text-align: center;
@@ -280,7 +278,7 @@
       .event-detail {
         display: flex;
         align-items: flex-start;
-        gap: 12px;
+        gap: 10px;
         margin-bottom: 10px;
       }
 
@@ -289,7 +287,6 @@
         width: 20px;
         text-align: center;
         flex-shrink: 0;
-        margin-top: 1px;
       }
 
       .event-text {
@@ -306,48 +303,41 @@
         display: block;
         background: rgba(212, 175, 55, 0.15);
         border: 1px solid rgba(212, 175, 55, 0.3);
-        padding: 6px 12px;
+        padding: 8px;
         font-family: "Cinzel", serif;
-        font-size: 11px;
+        font-size: 12px;
         color: #d4af37;
-        letter-spacing: 2px;
-        margin-top: 10px;
+        letter-spacing: 1px;
+        margin-top: 12px;
         text-align: center;
       }
 
       .map-link {
         display: block;
-        text-align: center;
-        margin-top: 10px;
-        font-style: italic;
+        width: fit-content;
+        margin: 12px auto 0; /* centers horizontally */
+        padding: 6px 14px;
         font-size: 12px;
-        color: rgba(212, 175, 55, 0.6);
-        text-decoration: none;
-        letter-spacing: 1px;
-        transition: color 0.3s;
-      }
-      .map-link:hover {
         color: #d4af37;
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        text-decoration: none;
+        border-radius: 20px;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      .map-link:hover {
+        background: rgba(212, 175, 55, 0.15);
       }
 
       .reception-box {
         width: 100%;
         background: rgba(138, 43, 226, 0.08);
         border: 1px solid rgba(212, 175, 55, 0.2);
-        padding: 22px 28px;
+        padding: 20px;
         margin: 8px 0;
         position: relative;
         animation: fadeSlideIn 1s ease 1.1s both;
-      }
-      .reception-box::before {
-        content: "";
-        position: absolute;
-        top: 4px;
-        left: 4px;
-        right: 4px;
-        bottom: 4px;
-        border: 1px solid rgba(212, 175, 55, 0.06);
-        pointer-events: none;
       }
 
       .blessings-note {
@@ -356,8 +346,8 @@
         color: rgba(255, 255, 255, 0.5);
         text-align: center;
         letter-spacing: 1px;
-        margin-top: 24px;
-        padding-top: 20px;
+        margin-top: 20px;
+        padding-top: 15px;
         border-top: 1px solid rgba(212, 175, 55, 0.15);
         animation: fadeSlideIn 1s ease 1.2s both;
       }
@@ -369,13 +359,11 @@
         right: 0;
         bottom: 0;
         pointer-events: none;
-        overflow: hidden;
         z-index: 0;
       }
 
       .petal {
         position: absolute;
-        font-size: 12px;
         opacity: 0;
         animation: floatPetal linear infinite;
       }
@@ -396,13 +384,32 @@
           transform: translateY(900px) rotate(360deg);
         }
       }
+
+      @media (max-width: 480px) {
+        .inner {
+          padding: 45px 20px 30px;
+        }
+        .groom-name,
+        .bride-name {
+          font-size: 34px;
+        }
+        .invitation-text {
+          font-size: 14px;
+        }
+        .event-text {
+          font-size: 14px;
+        }
+        .corner {
+          width: 50px;
+          height: 50px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="card" id="card">
       <div class="floating-petals" id="petals"></div>
 
-      <!-- Corner ornaments -->
       <div class="corner corner-tl">
         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -413,34 +420,7 @@
           />
           <path d="M5 5 L75 5" stroke="#D4AF37" stroke-width="1" />
           <path d="M5 5 L5 75" stroke="#D4AF37" stroke-width="1" />
-          <path
-            d="M5 35 Q5 5 35 5"
-            stroke="#D4AF37"
-            stroke-width="0.8"
-            fill="none"
-          />
-          <path
-            d="M5 55 Q5 5 55 5"
-            stroke="#D4AF37"
-            stroke-width="0.5"
-            fill="none"
-            opacity="0.5"
-          />
           <circle cx="5" cy="5" r="3" fill="#D4AF37" />
-          <circle cx="40" cy="5" r="1.5" fill="#D4AF37" opacity="0.6" />
-          <circle cx="5" cy="40" r="1.5" fill="#D4AF37" opacity="0.6" />
-          <path
-            d="M15 5 L5 15"
-            stroke="#D4AF37"
-            stroke-width="0.5"
-            opacity="0.4"
-          />
-          <path
-            d="M25 5 L5 25"
-            stroke="#D4AF37"
-            stroke-width="0.5"
-            opacity="0.3"
-          />
         </svg>
       </div>
       <div class="corner corner-tr">
@@ -453,22 +433,7 @@
           />
           <path d="M5 5 L75 5" stroke="#D4AF37" stroke-width="1" />
           <path d="M5 5 L5 75" stroke="#D4AF37" stroke-width="1" />
-          <path
-            d="M5 35 Q5 5 35 5"
-            stroke="#D4AF37"
-            stroke-width="0.8"
-            fill="none"
-          />
-          <path
-            d="M5 55 Q5 5 55 5"
-            stroke="#D4AF37"
-            stroke-width="0.5"
-            fill="none"
-            opacity="0.5"
-          />
           <circle cx="5" cy="5" r="3" fill="#D4AF37" />
-          <circle cx="40" cy="5" r="1.5" fill="#D4AF37" opacity="0.6" />
-          <circle cx="5" cy="40" r="1.5" fill="#D4AF37" opacity="0.6" />
         </svg>
       </div>
       <div class="corner corner-bl">
@@ -481,12 +446,6 @@
           />
           <path d="M5 5 L75 5" stroke="#D4AF37" stroke-width="1" />
           <path d="M5 5 L5 75" stroke="#D4AF37" stroke-width="1" />
-          <path
-            d="M5 35 Q5 5 35 5"
-            stroke="#D4AF37"
-            stroke-width="0.8"
-            fill="none"
-          />
           <circle cx="5" cy="5" r="3" fill="#D4AF37" />
         </svg>
       </div>
@@ -500,12 +459,6 @@
           />
           <path d="M5 5 L75 5" stroke="#D4AF37" stroke-width="1" />
           <path d="M5 5 L5 75" stroke="#D4AF37" stroke-width="1" />
-          <path
-            d="M5 35 Q5 5 35 5"
-            stroke="#D4AF37"
-            stroke-width="0.8"
-            fill="none"
-          />
           <circle cx="5" cy="5" r="3" fill="#D4AF37" />
         </svg>
       </div>
@@ -514,8 +467,8 @@
         <div class="deity">|| Shree Shankaranarayana Prasanna ||</div>
 
         <div class="parents">
-          Smt. Seemanthini Vaidya &amp; Sri Sadananda Vaidya<br />
-          <span style="font-size: 11px; opacity: 0.7; letter-spacing: 2px"
+          Smt. Seemanthini Vaidya & Sri Sadananda Vaidya<br />
+          <span style="font-size: 12px; opacity: 0.7; letter-spacing: 2px"
             >Kowlali, Shankaranarayana</span
           >
         </div>
@@ -536,7 +489,7 @@
           <div class="with-text">❧ weds ❧</div>
           <div class="bride-name">Chi. Sou. Sthuthi</div>
           <div class="bride-parents">
-            D/o. Smt. Jyothi &amp; Sri Ranganath Bhat, Kuthyar
+            D/o. Smt. Jyothi & Sri Ranganath Bhat, Kuthyar
           </div>
         </div>
 
@@ -546,7 +499,6 @@
           <div class="divider-line"></div>
         </div>
 
-        <!-- Wedding -->
         <div class="event-box" style="margin-top: 20px">
           <div class="event-label">✦ Wedding Ceremony ✦</div>
           <div class="event-detail">
@@ -570,10 +522,9 @@
           >
         </div>
 
-        <!-- Reception -->
         <div class="reception-box">
           <div class="event-label">
-            ✦ Shree Sathyanarayana Pooja &amp; Reception ✦
+            ✦ Shree Sathyanarayana Pooja & Reception ✦
           </div>
           <div class="event-detail">
             <span class="event-icon">📅</span>
@@ -595,24 +546,21 @@
           >
         </div>
 
-        <p class="blessings-note">
-          🙏 &nbsp; Presents in Blessings only &nbsp; 🙏
-        </p>
+        <p class="blessings-note">🙏   Presents in Blessings only   🙏</p>
       </div>
     </div>
 
     <script>
       const petals = document.getElementById("petals");
       const symbols = ["✿", "❀", "✾", "❁", "🌸"];
-      for (let i = 0; i < 18; i++) {
+      for (let i = 0; i < 15; i++) {
         const p = document.createElement("div");
         p.className = "petal";
         p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
         p.style.left = Math.random() * 100 + "%";
         p.style.animationDuration = 8 + Math.random() * 12 + "s";
-        p.style.animationDelay = Math.random() * 15 + "s";
-        p.style.fontSize = 8 + Math.random() * 8 + "px";
-        p.style.opacity = "0";
+        p.style.animationDelay = Math.random() * 5 + "s";
+        p.style.fontSize = 10 + Math.random() * 10 + "px";
         p.style.color = `rgba(212,175,55,${0.2 + Math.random() * 0.3})`;
         petals.appendChild(p);
       }
