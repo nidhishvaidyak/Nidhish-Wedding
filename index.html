@@ -1,453 +1,576 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation - Nidhish & Sthuthi</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Invitation - Nidhish & Sthuthi</title>
 
-  body {
-    background: #0a0a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family: 'Cormorant Garamond', serif;
-    overflow-x: hidden;
-  }
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600;700&family=Dancing+Script:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  .card {
-    width: 480px;
-    background: linear-gradient(160deg, #0d1b3e 0%, #0a1628 40%, #1a0d2e 100%);
-    border: 1px solid rgba(212,175,55,0.3);
-    position: relative;
-    overflow: hidden;
-    animation: fadeIn 1.5s ease forwards;
-    box-shadow: 0 0 80px rgba(212,175,55,0.15), 0 0 200px rgba(0,0,0,0.8);
-  }
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+      body {
+        background: #0a0a1a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: "Cormorant Garamond", serif;
+        padding: 20px;
+      }
 
-  /* Gold shimmer overlay */
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.08) 0%, transparent 70%),
-                radial-gradient(ellipse at 50% 100%, rgba(212,175,55,0.05) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-  }
+      .card {
+        width: 480px;
 
-  /* Animated shimmer */
-  .card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent 40%, rgba(212,175,55,0.03) 50%, transparent 60%);
-    animation: shimmer 6s infinite;
-    pointer-events: none;
-    z-index: 0;
-  }
+        background: linear-gradient(
+          160deg,
+          #0d1b3e 0%,
+          #0a1628 40%,
+          #1a0d2e 100%
+        );
 
-  @keyframes shimmer {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-  }
+        border: 1px solid rgba(212, 175, 55, 0.3);
 
-  /* Corner ornaments */
-  .corner {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    z-index: 2;
-  }
-  .corner svg { width: 100%; height: 100%; }
-  .corner-tl { top: 0; left: 0; }
-  .corner-tr { top: 0; right: 0; transform: scaleX(-1); }
-  .corner-bl { bottom: 0; left: 0; transform: scaleY(-1); }
-  .corner-br { bottom: 0; right: 0; transform: scale(-1,-1); }
+        position: relative;
 
-  .inner {
-    position: relative;
-    z-index: 1;
-    padding: 60px 50px 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-  }
+        overflow: hidden;
 
-  .deity {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    color: rgba(212,175,55,0.7);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-    text-align: center;
-    animation: fadeSlideIn 1s ease 0.3s both;
-  }
+        animation: fadeIn 1.5s ease forwards;
 
-  @keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+        box-shadow:
+          0 0 80px rgba(212, 175, 55, 0.15),
+          0 0 200px rgba(0, 0, 0, 0.8);
+      }
 
-  .om-symbol {
-    font-size: 28px;
-    color: #D4AF37;
-    margin-bottom: 18px;
-    animation: fadeSlideIn 1s ease 0.5s both;
-    filter: drop-shadow(0 0 8px rgba(212,175,55,0.5));
-  }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  .parents {
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
-    color: #D4AF37;
-    text-align: center;
-    line-height: 1.8;
-    letter-spacing: 1px;
-    animation: fadeSlideIn 1s ease 0.6s both;
-  }
+      /* shimmer overlay */
 
-  .invitation-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: rgba(255,255,255,0.75);
-    text-align: center;
-    line-height: 1.9;
-    margin: 20px 0 24px;
-    animation: fadeSlideIn 1s ease 0.7s both;
-  }
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 50% 0%,
+            rgba(212, 175, 55, 0.08) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse at 50% 100%,
+            rgba(212, 175, 55, 0.05) 0%,
+            transparent 60%
+          );
+        pointer-events: none;
+      }
 
-  .divider {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 6px 0;
-    animation: fadeSlideIn 1s ease 0.8s both;
-  }
-  .divider-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.6), transparent);
-  }
-  .divider-diamond {
-    width: 6px;
-    height: 6px;
-    background: #D4AF37;
-    transform: rotate(45deg);
-    flex-shrink: 0;
-  }
+      .card::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
 
-  .couple-section {
-    text-align: center;
-    margin: 24px 0;
-    animation: fadeSlideIn 1s ease 0.9s both;
-  }
+        background: linear-gradient(
+          45deg,
+          transparent 40%,
+          rgba(212, 175, 55, 0.04) 50%,
+          transparent 60%
+        );
 
-  .groom-name {
-    font-family: 'Dancing Script', cursive;
-    font-size: 52px;
-    color: #D4AF37;
-    line-height: 1.1;
-    filter: drop-shadow(0 0 12px rgba(212,175,55,0.4));
-    letter-spacing: 1px;
-  }
+        animation: shimmer 6s infinite;
+      }
 
-  .with-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: rgba(255,255,255,0.6);
-    margin: 8px 0;
-    letter-spacing: 3px;
-  }
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
 
-  .bride-name {
-    font-family: 'Dancing Script', cursive;
-    font-size: 52px;
-    color: #e8c97a;
-    line-height: 1.1;
-    filter: drop-shadow(0 0 12px rgba(232,201,122,0.4));
-    letter-spacing: 1px;
-  }
+      /* content */
 
-  .bride-parents {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    margin-top: 8px;
-    letter-spacing: 0.5px;
-  }
+      .inner {
+        position: relative;
+        z-index: 1;
+        padding: 60px 50px 50px;
 
-  .event-box {
-    width: 100%;
-    background: rgba(212,175,55,0.06);
-    border: 1px solid rgba(212,175,55,0.2);
-    padding: 22px 28px;
-    margin: 8px 0;
-    position: relative;
-    animation: fadeSlideIn 1s ease 1s both;
-  }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-  .event-box::before {
-    content: '';
-    position: absolute;
-    top: 4px; left: 4px; right: 4px; bottom: 4px;
-    border: 1px solid rgba(212,175,55,0.08);
-    pointer-events: none;
-  }
+      .deity {
+        font-family: "Cinzel", serif;
+        font-size: 10px;
+        color: rgba(212, 175, 55, 0.7);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        text-align: center;
+      }
 
-  .event-label {
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    color: #D4AF37;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    text-align: center;
-  }
+      .parents {
+        font-family: "Cinzel", serif;
 
-  .event-detail {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
+        font-size: 13px;
 
-  .event-icon {
-    font-size: 14px;
-    width: 20px;
-    text-align: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
+        color: #d4af37;
 
-  .event-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.5;
-  }
+        text-align: center;
 
-  .event-text strong {
-    color: #D4AF37;
-    font-weight: 600;
-  }
+        line-height: 1.8;
 
-  .muhurtham-tag {
-    display: inline-block;
-    background: rgba(212,175,55,0.15);
-    border: 1px solid rgba(212,175,55,0.3);
-    padding: 4px 12px;
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    color: #D4AF37;
-    letter-spacing: 2px;
-    margin-top: 10px;
-    text-align: center;
-    width: 100%;
-  }
+        letter-spacing: 1px;
+      }
 
-  .map-link {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 12px;
-    color: rgba(212,175,55,0.6);
-    text-decoration: none;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-  }
-  .map-link:hover { color: #D4AF37; }
+      .invitation-text {
+        font-style: italic;
 
-  .reception-box {
-    width: 100%;
-    background: rgba(138,43,226,0.08);
-    border: 1px solid rgba(212,175,55,0.2);
-    padding: 22px 28px;
-    margin: 8px 0;
-    animation: fadeSlideIn 1s ease 1.1s both;
-  }
+        font-size: 15px;
 
-  .blessings-note {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    text-align: center;
-    letter-spacing: 1px;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(212,175,55,0.15);
-    animation: fadeSlideIn 1s ease 1.2s both;
-  }
+        color: rgba(255, 255, 255, 0.75);
 
-  .floating-petals {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-  }
+        text-align: center;
 
-  .petal {
-    position: absolute;
-    font-size: 12px;
-    opacity: 0;
-    animation: floatPetal linear infinite;
-  }
+        line-height: 1.9;
 
-  @keyframes floatPetal {
-    0% { opacity: 0; transform: translateY(-20px) rotate(0deg); }
-    10% { opacity: 0.4; }
-    90% { opacity: 0.1; }
-    100% { opacity: 0; transform: translateY(900px) rotate(360deg); }
-  }
-</style>
-</head>
-<body>
+        margin: 20px 0 24px;
+      }
 
-<div class="card" id="card">
-  <!-- Floating petals -->
-  <div class="floating-petals" id="petals"></div>
+      .divider {
+        width: 100%;
 
-  <!-- Corner ornaments -->
-  <div class="corner corner-tl">
-    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M5 5 L5 40 Q5 5 40 5 Z" stroke="#D4AF37" stroke-width="0.5" fill="rgba(212,175,55,0.05)"/>
-      <path d="M5 5 L75 5" stroke="#D4AF37" stroke-width="1"/>
-      <path d="M5 5 L5 75" stroke="#D4AF37" stroke-width="1"/>
-      <path d="M5 35 Q5 5 35 5" stroke="#D4AF37" stroke-width="0.8" fill="none"/>
-      <path d="M5 55 Q5 5 55 5" stroke="#D4AF37" stroke-width="0.5" fill="none" opacity="0.5"/>
-      <circle cx="5" cy="5" r="3" fill="#D4AF37"/>
-      <circle cx="40" cy="5" r="1.5" fill="#D4AF37" opacity="0.6"/>
-      <circle cx="5" cy="40" r="1.5" fill="#D4AF37" opacity="0.6"/>
-      <path d="M15 5 L5 15" stroke="#D4AF37" stroke-width="0.5" opacity="0.4"/>
-      <path d="M25 5 L5 25" stroke="#D4AF37" stroke-width="0.5" opacity="0.3"/>
-    </svg>
-  </div>
-  <div class="corner corner-tr">
-    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M5 5 L5 40 Q5 5 40 5 Z" stroke="#D4AF37" stroke-width="0.5" fill="rgba(212,175,55,0.05)"/>
-      <path d="M5 5 L75 5" stroke="#D4AF37" stroke-width="1"/>
-      <path d="M5 5 L5 75" stroke="#D4AF37" stroke-width="1"/>
-      <path d="M5 35 Q5 5 35 5" stroke="#D4AF37" stroke-width="0.8" fill="none"/>
-      <path d="M5 55 Q5 5 55 5" stroke="#D4AF37" stroke-width="0.5" fill="none" opacity="0.5"/>
-      <circle cx="5" cy="5" r="3" fill="#D4AF37"/>
-      <circle cx="40" cy="5" r="1.5" fill="#D4AF37" opacity="0.6"/>
-      <circle cx="5" cy="40" r="1.5" fill="#D4AF37" opacity="0.6"/>
-    </svg>
-  </div>
-  <div class="corner corner-bl">
-    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M5 5 L5 40 Q5 5 40 5 Z" stroke="#D4AF37" stroke-width="0.5" fill="rgba(212,175,55,0.05)"/>
-      <path d="M5 5 L75 5" stroke="#D4AF37" stroke-width="1"/>
-      <path d="M5 5 L5 75" stroke="#D4AF37" stroke-width="1"/>
-      <path d="M5 35 Q5 5 35 5" stroke="#D4AF37" stroke-width="0.8" fill="none"/>
-      <circle cx="5" cy="5" r="3" fill="#D4AF37"/>
-    </svg>
-  </div>
-  <div class="corner corner-br">
-    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M5 5 L5 40 Q5 5 40 5 Z" stroke="#D4AF37" stroke-width="0.5" fill="rgba(212,175,55,0.05)"/>
-      <path d="M5 5 L75 5" stroke="#D4AF37" stroke-width="1"/>
-      <path d="M5 5 L5 75" stroke="#D4AF37" stroke-width="1"/>
-      <path d="M5 35 Q5 5 35 5" stroke="#D4AF37" stroke-width="0.8" fill="none"/>
-      <circle cx="5" cy="5" r="3" fill="#D4AF37"/>
-    </svg>
-  </div>
+        display: flex;
 
-  <div class="inner">
-    <div class="deity">|| Shree Shankaranarayana Prasanna ||</div>
+        align-items: center;
 
-    <div class="parents">
-      Smt. Seemanthini Vaidya & Sri Sadananda Vaidya<br>
-      <span style="font-size:11px; opacity:0.7; letter-spacing:2px;">Kowlali, Shankaranarayana</span>
+        gap: 12px;
+
+        margin: 6px 0;
+      }
+
+      .divider-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(212, 175, 55, 0.6),
+          transparent
+        );
+      }
+
+      .divider-diamond {
+        width: 6px;
+
+        height: 6px;
+
+        background: #d4af37;
+
+        transform: rotate(45deg);
+      }
+
+      /* couple names */
+
+      .couple-section {
+        text-align: center;
+
+        margin: 24px 0;
+
+        animation: glowPulse 6s ease-in-out infinite;
+      }
+
+      @keyframes glowPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.02);
+        }
+      }
+
+      .groom-name,
+      .bride-name {
+        white-space: nowrap;
+      }
+
+      .groom-name {
+        font-family: "Dancing Script", cursive;
+
+        font-size: 52px;
+
+        color: #d4af37;
+
+        letter-spacing: 1px;
+
+        text-shadow:
+          0 0 5px rgba(212, 175, 55, 0.4),
+          0 0 15px rgba(212, 175, 55, 0.3),
+          0 0 30px rgba(212, 175, 55, 0.2);
+      }
+
+      .with-text {
+        font-style: italic;
+
+        font-size: 18px;
+
+        color: rgba(255, 255, 255, 0.6);
+
+        margin: 8px 0;
+
+        letter-spacing: 3px;
+      }
+
+      .bride-name {
+        font-family: "Dancing Script", cursive;
+
+        font-size: 52px;
+
+        color: #e8c97a;
+
+        letter-spacing: 1px;
+
+        text-shadow:
+          0 0 5px rgba(212, 175, 55, 0.4),
+          0 0 15px rgba(212, 175, 55, 0.3),
+          0 0 30px rgba(212, 175, 55, 0.2);
+      }
+
+      /* event box */
+
+      .event-box,
+      .reception-box {
+        width: 100%;
+
+        padding: 22px 28px;
+
+        margin: 10px 0;
+
+        border: 1px solid rgba(212, 175, 55, 0.2);
+      }
+
+      .event-box {
+        background: rgba(212, 175, 55, 0.06);
+      }
+
+      .reception-box {
+        background: rgba(138, 43, 226, 0.08);
+      }
+
+      .event-label {
+        font-family: "Cinzel", serif;
+
+        font-size: 10px;
+
+        color: #d4af37;
+
+        letter-spacing: 4px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 14px;
+
+        text-align: center;
+      }
+
+      .event-detail {
+        display: flex;
+
+        gap: 12px;
+
+        margin-bottom: 10px;
+      }
+
+      .event-text {
+        font-size: 15px;
+
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .muhurtham-tag {
+        display: block;
+
+        background: rgba(212, 175, 55, 0.15);
+
+        border: 1px solid rgba(212, 175, 55, 0.3);
+
+        padding: 6px;
+
+        font-family: "Cinzel", serif;
+
+        font-size: 11px;
+
+        color: #d4af37;
+
+        letter-spacing: 2px;
+
+        margin-top: 10px;
+
+        text-align: center;
+      }
+
+      .map-link {
+        display: block;
+
+        text-align: center;
+
+        margin-top: 10px;
+
+        font-style: italic;
+
+        font-size: 12px;
+
+        color: rgba(212, 175, 55, 0.6);
+
+        text-decoration: none;
+      }
+
+      .map-link:hover {
+        color: #d4af37;
+      }
+
+      .blessings-note {
+        font-style: italic;
+
+        font-size: 14px;
+
+        color: rgba(255, 255, 255, 0.5);
+
+        text-align: center;
+
+        letter-spacing: 1px;
+
+        margin-top: 24px;
+
+        padding-top: 20px;
+
+        border-top: 1px solid rgba(212, 175, 55, 0.15);
+      }
+
+      /* floating petals */
+
+      .floating-petals {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .petal {
+        position: absolute;
+
+        font-size: 12px;
+
+        opacity: 0;
+
+        animation: floatPetal linear infinite;
+      }
+
+      @keyframes floatPetal {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px) rotate(0deg);
+        }
+
+        10% {
+          opacity: 0.4;
+        }
+
+        90% {
+          opacity: 0.1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(900px) rotate(360deg);
+        }
+      }
+
+      /* MOBILE RESPONSIVE */
+
+      @media (max-width: 600px) {
+        .card {
+          width: 95%;
+        }
+
+        .inner {
+          padding: 45px 28px 40px;
+        }
+
+        .groom-name,
+        .bride-name {
+          font-size: 40px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .groom-name,
+        .bride-name {
+          font-size: 34px;
+        }
+
+        .invitation-text {
+          font-size: 14px;
+        }
+
+        .event-text {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="floating-petals" id="petals"></div>
+
+      <div class="inner">
+        <div class="deity">|| Shree Shankaranarayana Prasanna ||</div>
+
+        <div class="parents">
+          Smt. Seemanthini Vaidya & Sri Sadananda Vaidya<br />
+          <span style="font-size: 11px; opacity: 0.7; letter-spacing: 2px">
+            Kowlali, Shankaranarayana
+          </span>
+        </div>
+
+        <p class="invitation-text">
+          Solicit your gracious presence with family and friends<br />
+          on the auspicious occasion of the marriage ceremony of their son
+        </p>
+
+        <div class="divider">
+          <div class="divider-line"></div>
+          <div class="divider-diamond"></div>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="couple-section">
+          <div class="groom-name">Chi. Nidhish</div>
+
+          <div class="with-text">❧ weds ❧</div>
+
+          <div class="bride-name">Chi. Sou. Sthuthi</div>
+        </div>
+
+        <div class="divider">
+          <div class="divider-line"></div>
+          <div class="divider-diamond"></div>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="event-box">
+          <div class="event-label">✦ Wedding Ceremony ✦</div>
+
+          <div class="event-detail">
+            📅
+            <div class="event-text"><strong>Friday, 1st May 2026</strong></div>
+          </div>
+
+          <div class="event-detail">
+            📍
+            <div class="event-text">
+              Vyasamadhwa Sabhangana<br />
+              Pajaka Kshetra, Kunjarugiri, Udupi
+            </div>
+          </div>
+
+          <div class="muhurtham-tag">
+            Muhurtham : 10.19 a.m. · Mithuna Lagnam
+          </div>
+
+          <a
+            href="https://maps.app.goo.gl/yFdFDwA5vfA2YdMFA"
+            class="map-link"
+            target="_blank"
+          >
+            🗺 View on Google Maps
+          </a>
+        </div>
+
+        <div class="reception-box">
+          <div class="event-label">
+            ✦ Shree Sathyanarayana Pooja & Reception ✦
+          </div>
+
+          <div class="event-detail">
+            📅
+            <div class="event-text">
+              <strong>Saturday, 2nd May 2026</strong> · 12:00 p.m.
+            </div>
+          </div>
+
+          <div class="event-detail">
+            📍
+            <div class="event-text">
+              Govinda Kalyana Mantapa<br />
+              Ajjarkad, Udupi
+            </div>
+          </div>
+
+          <a
+            href="https://maps.app.goo.gl/19qtMccuQ8uDV7c8A"
+            class="map-link"
+            target="_blank"
+          >
+            🗺 View on Google Maps
+          </a>
+        </div>
+
+        <p class="blessings-note">🙏 Presents in Blessings only 🙏</p>
+      </div>
     </div>
 
-    <p class="invitation-text">
-      Solicit your gracious presence with family and friends<br>
-      on the auspicious occasion of the marriage ceremony of their son
-    </p>
+    <script>
+      const petals = document.getElementById("petals");
 
-    <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+      const symbols = ["✿", "❀", "✾", "❁", "🌸"];
 
-    <div class="couple-section">
-      <div class="groom-name">Chi. Nidhish</div>
-      <div class="with-text">❧ weds ❧</div>
-      <div class="bride-name">Chi. Sou. Sthuthi</div>
-    </div>
+      for (let i = 0; i < 28; i++) {
+        const p = document.createElement("div");
 
-    <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+        p.className = "petal";
 
-    <!-- Wedding Event -->
-    <div class="event-box" style="margin-top: 20px;">
-      <div class="event-label">✦ Wedding Ceremony ✦</div>
-      <div class="event-detail">
-        <span class="event-icon">📅</span>
-        <div class="event-text"><strong>Friday, 1st May 2026</strong></div>
-      </div>
-      <div class="event-detail">
-        <span class="event-icon">📍</span>
-        <div class="event-text">Vyasamadhwa Sabhangana<br>Pajaka Kshetra, Kunjarugiri</div>
-      </div>
-      <div class="muhurtham-tag">Muhurtham : 10.19 a.m. · Mithuna Lagnam</div>
-      <a href="https://maps.app.goo.gl/yFdFDwA5vfA2YdMFA" class="map-link" target="_blank">🗺 View on Google Maps</a>
-    </div>
+        p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
 
-    <!-- Reception Event -->
-    <div class="reception-box">
-      <div class="event-label">✦ Shree Sathyanarayana Pooja & Reception ✦</div>
-      <div class="event-detail">
-        <span class="event-icon">📅</span>
-        <div class="event-text"><strong>Saturday, 2nd May 2026</strong> · 12:00 p.m.</div>
-      </div>
-      <div class="event-detail">
-        <span class="event-icon">📍</span>
-        <div class="event-text">Govinda Kalyana Mantapa<br>Ajjarkad, Udupi</div>
-      </div>
-      <a href="https://maps.app.goo.gl/19qtMccuQ8uDV7c8A" class="map-link" target="_blank">🗺 View on Google Maps</a>
-    </div>
+        p.style.left = Math.random() * 100 + "%";
 
-    <p class="blessings-note">
-      🙏 &nbsp; Presents in Blessings only &nbsp; 🙏
-    </p>
-  </div>
-</div>
+        p.style.animationDuration = 8 + Math.random() * 12 + "s";
 
-<script>
-  // Floating flower petals
-  const petals = document.getElementById('petals');
-  const symbols = ['✿', '❀', '✾', '❁', '🌸'];
-  for (let i = 0; i < 18; i++) {
-    const p = document.createElement('div');
-    p.className = 'petal';
-    p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-    p.style.left = Math.random() * 100 + '%';
-    p.style.animationDuration = (8 + Math.random() * 12) + 's';
-    p.style.animationDelay = (Math.random() * 15) + 's';
-    p.style.fontSize = (8 + Math.random() * 8) + 'px';
-    p.style.opacity = '0';
-    p.style.color = `rgba(212,175,55,${0.2 + Math.random() * 0.3})`;
-    petals.appendChild(p);
-  }
-</script>
-</body>
+        p.style.animationDelay = Math.random() * 15 + "s";
+
+        p.style.fontSize = 8 + Math.random() * 8 + "px";
+
+        p.style.color = `rgba(212,175,55,${0.2 + Math.random() * 0.3})`;
+
+        petals.appendChild(p);
+      }
+    </script>
+  </body>
 </html>
